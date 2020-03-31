@@ -32,7 +32,7 @@ console.log(slideShow.getCurrentPhoto())
 console.log(slideShow.currentPhotoIndex)
 
 
-
+test
 
 
 
