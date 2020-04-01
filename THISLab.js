@@ -1,6 +1,7 @@
 var slideShow = {
     photoList: ['pic1','pic2','pic3','pic4','pic5','pic6'],
     currentPhotoIndex: 2,
+
     nextPhoto: function(){
         
         if (this.currentPhotoIndex < this.photoList.length-1){
@@ -24,15 +25,20 @@ var slideShow = {
         return this.photoList[this.currentPhotoIndex];
         // returns the current photo from the list
     },
-}
+
+    playInterval: null,
+
+    play: function() {
+        var self = this;
+        this.playInterval = setInterval(function(){self.nextPhoto()}, 2000)
+    },
+
+    pause: function() {
+        clearInterval(this.playInterval);
+    }
+};
 
 
 
 console.log(slideShow.getCurrentPhoto())
 console.log(slideShow.currentPhotoIndex)
-
-
-console.log("Test to see how git/github branches work");
-
-
-
