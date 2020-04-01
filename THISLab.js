@@ -1,6 +1,6 @@
 var slideShow = {
     photoList: ['pic1','pic2','pic3','pic4','pic5','pic6'],
-    currentPhotoIndex: 2,
+    currentPhotoIndex: 0,
 
     nextPhoto: function(){
         
@@ -8,10 +8,11 @@ var slideShow = {
             console.log(this.photoList[this.currentPhotoIndex+1]);
             return this.currentPhotoIndex++;
             
-        } else console.log("End of slideshow");
-        // move currentPhotoIndex to the next index "IF" there is one
-        // logs the current photo name
-        // otherwise log "End of slideshow"
+        } else 
+            // this.currentPhotoIndex = -1;
+            {console.log("End of slideshow");
+            slideShow.pause();
+            }
     },
     prevPhoto: function(){
         if (this.currentPhotoIndex > 0){
@@ -19,18 +20,17 @@ var slideShow = {
             return this.currentPhotoIndex--;
             
         } else console.log("End of slideshow");
-        // same as nextphoto but backwards.
     },
     getCurrentPhoto: function(){
         return this.photoList[this.currentPhotoIndex];
-        // returns the current photo from the list
     },
 
     playInterval: null,
 
     play: function() {
-        var self = this;
-        this.playInterval = setInterval(function(){self.nextPhoto()}, 2000)
+        var that = this;
+        this.playInterval = setInterval(function(){that.nextPhoto()}, 2000)
+        console.log(this.getCurrentPhoto());
     },
 
     pause: function() {
@@ -40,5 +40,8 @@ var slideShow = {
 
 
 
-console.log(slideShow.getCurrentPhoto())
-console.log(slideShow.currentPhotoIndex)
+console.log(slideShow.photoList.length);
+slideShow.play();
+
+// console.log(slideShow.getCurrentPhoto())
+// console.log(slideShow.currentPhotoIndex)
