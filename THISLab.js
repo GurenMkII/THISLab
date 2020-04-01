@@ -32,7 +32,7 @@ console.log(slideShow.getCurrentPhoto())
 console.log(slideShow.currentPhotoIndex)
 
 
-test
+console.log("Test to see how git/github branches work");
 
 
 
